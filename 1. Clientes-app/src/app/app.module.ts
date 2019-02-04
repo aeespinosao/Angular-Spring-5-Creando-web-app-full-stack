@@ -8,6 +8,7 @@ import { ClienteComponent } from './components/cliente/cliente.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
 
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   { path: 'clientes', component: ClientesComponent },
@@ -25,7 +26,8 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
