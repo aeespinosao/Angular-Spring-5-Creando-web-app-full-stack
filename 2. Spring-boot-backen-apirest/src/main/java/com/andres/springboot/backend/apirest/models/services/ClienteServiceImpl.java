@@ -14,9 +14,25 @@ public class ClienteServiceImpl implements IClienteService{
 
 	@Autowired
 	private IClienteDao clienteDao;
+	
 	@Transactional(readOnly=true)
 	public List<Cliente> findAll() {
 		return (List<Cliente>) clienteDao.findAll();
+	}
+	
+	@Transactional
+	public void delete(Long id) {
+		clienteDao.deleteById(id);		
+	}
+	
+	@Transactional(readOnly=true)
+	public Cliente findById(Long id) {
+		return clienteDao.findById(id).orElse(null);
+	}
+	
+	@Transactional
+	public Cliente save(Cliente cliente) {
+		return clienteDao.save(cliente);
 	}
 	
 
